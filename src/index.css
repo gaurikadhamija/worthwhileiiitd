@@ -1,0 +1,163 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --font-display: 'Cormorant Garamond', Georgia, serif;
+    --font-body: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
+
+    /* Coffeehouse Editorial Palette */
+    --espresso: #241510;
+    --coffee-dark: #3A2118;
+    --coffee-brown: #5A3828;
+    --mocha: #7A5540;
+    --caramel: #A67C5B;
+    --cream: #E8DCC8;
+    --ivory: #F4EBDD;
+    --wine-dark: #2C0F12;
+    --wine-accent: #6B1E23;
+  }
+
+  body {
+    font-family: var(--font-body);
+    color: #2A1B16;
+    background-color: #3A2118;
+    min-height: 100vh;
+  }
+
+  h1, h2, h3, .font-serif {
+    font-family: var(--font-display);
+  }
+}
+
+/* Subtle luxury grain noise background overlay */
+.bg-coffee-grain {
+  background-image: radial-gradient(rgba(36, 21, 16, 0.08) 1px, transparent 0);
+  background-size: 24px 24px;
+}
+
+@keyframes floatSlow {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-8px) rotate(0.5deg);
+  }
+}
+
+@keyframes floatGentle {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+@keyframes coffeeBlobDrift1 {
+  0%, 100% {
+    transform: translate(0px, 0px) scale(1);
+  }
+  33% {
+    transform: translate(60px, -40px) scale(1.12);
+  }
+  66% {
+    transform: translate(-50px, 45px) scale(0.92);
+  }
+}
+
+@keyframes coffeeBlobDrift2 {
+  0%, 100% {
+    transform: translate(0px, 0px) scale(1);
+  }
+  50% {
+    transform: translate(-70px, -55px) scale(1.18);
+  }
+}
+
+@keyframes cafeLightSweep {
+  0%, 100% {
+    transform: translate(-40px, -20px) rotate(0deg);
+    opacity: 0.50;
+  }
+  50% {
+    transform: translate(75px, 40px) rotate(10deg);
+    opacity: 0.85;
+  }
+}
+
+@keyframes coffeePulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.55;
+  }
+  50% {
+    transform: scale(1.2);
+    opacity: 0.85;
+  }
+}
+
+@keyframes steamRise {
+  0% {
+    transform: translateY(0) scaleY(1);
+    opacity: 0.25;
+  }
+  50% {
+    transform: translateY(-20px) scaleY(1.08);
+    opacity: 0.6;
+  }
+  100% {
+    transform: translateY(-40px) scaleY(1.15);
+    opacity: 0;
+  }
+}
+
+@keyframes slowOrbit {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-float-slow {
+  animation: floatSlow 7s ease-in-out infinite;
+}
+
+.animate-float-gentle {
+  animation: floatGentle 5s ease-in-out infinite;
+}
+
+.animate-coffee-drift-1 {
+  animation: coffeeBlobDrift1 14s ease-in-out infinite;
+}
+
+.animate-coffee-drift-2 {
+  animation: coffeeBlobDrift2 18s ease-in-out infinite;
+}
+
+.animate-cafe-light {
+  animation: cafeLightSweep 12s ease-in-out infinite;
+}
+
+.animate-coffee-pulse {
+  animation: coffeePulse 8s ease-in-out infinite;
+}
+
+.animate-slow-orbit {
+  animation: slowOrbit 45s linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-float-slow,
+  .animate-float-gentle,
+  .animate-coffee-drift-1,
+  .animate-coffee-drift-2,
+  .animate-cafe-light,
+  .animate-coffee-pulse,
+  .animate-slow-orbit {
+    animation: none !important;
+  }
+}
+
