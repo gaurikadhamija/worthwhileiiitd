@@ -116,45 +116,32 @@ export const CoffeeAtmosphere: React.FC<Props> = ({ intensity = 'medium' }) => {
       ctx.clearRect(0, 0, width, height);
 
       // -------------------------------------------------------------
-      // LAYER 1: Base Warm Coffee Gradient Foundation
-      // Warm roasted café parchment: Rich coffee cream -> Warm mocha -> Warm caramel
+      // LAYER 1: Base Warm Coffee Cream Gradient Foundation
+      // Warm roasted café cream: #F3E9D8 / #EADCC4
       // -------------------------------------------------------------
       const bgGrad = ctx.createLinearGradient(0, 0, width * 0.4, height);
-      if (pageIntensity === 'high') {
-        bgGrad.addColorStop(0, '#241510');    // Deep espresso
-        bgGrad.addColorStop(0.25, '#3A2118'); // Dark coffee
-        bgGrad.addColorStop(0.55, '#5A3828'); // Coffee brown & mocha
-        bgGrad.addColorStop(0.80, '#8C5E40'); // Warm caramel
-        bgGrad.addColorStop(1, '#C2A380');    // Warm toasted crema paper
-      } else if (pageIntensity === 'subtle') {
-        bgGrad.addColorStop(0, '#2C1810');
-        bgGrad.addColorStop(0.40, '#4A2A1E');
-        bgGrad.addColorStop(0.75, '#734A35');
-        bgGrad.addColorStop(1, '#B09072');
-      } else {
-        bgGrad.addColorStop(0, '#261611');
-        bgGrad.addColorStop(0.35, '#3E241A');
-        bgGrad.addColorStop(0.70, '#664230');
-        bgGrad.addColorStop(1, '#A8886A');
-      }
+      bgGrad.addColorStop(0, '#F3E9D8');    // Warm background cream
+      bgGrad.addColorStop(0.35, '#EADCC4'); // Soft toasted cream
+      bgGrad.addColorStop(0.70, '#F0E5D4'); // Warm latte cream
+      bgGrad.addColorStop(1, '#E8D9C0');    // Cream caramel foundation
       ctx.fillStyle = bgGrad;
       ctx.fillRect(0, 0, width, height);
 
       // -------------------------------------------------------------
-      // LAYER 2: Large Slowly Drifting Organic Coffee & Wine Blobs
+      // LAYER 2: Large Slowly Drifting Organic Coffee Cream & Caramel Blobs
       // -------------------------------------------------------------
       blobs.forEach((b, i) => {
-        const driftX = prefersReducedMotion ? 0 : Math.sin(elapsed * b.vx + b.phase) * 75;
-        const driftY = prefersReducedMotion ? 0 : Math.cos(elapsed * b.vy + b.phase * 1.3) * 60;
-        const pulse = prefersReducedMotion ? 1 : 1 + Math.sin(elapsed * 0.0003 + i) * 0.08;
+        const driftX = prefersReducedMotion ? 0 : Math.sin(elapsed * b.vx + b.phase) * 55;
+        const driftY = prefersReducedMotion ? 0 : Math.cos(elapsed * b.vy + b.phase * 1.3) * 45;
+        const pulse = prefersReducedMotion ? 1 : 1 + Math.sin(elapsed * 0.0003 + i) * 0.06;
         const curX = b.x + driftX;
         const curY = b.y + driftY;
         const curR = b.radius * pulse;
 
         const grad = ctx.createRadialGradient(curX, curY, 0, curX, curY, curR);
-        grad.addColorStop(0, b.colorStart);
-        grad.addColorStop(0.6, b.colorStart.replace(/[\d\.]+\)$/, '0.12)'));
-        grad.addColorStop(1, b.colorEnd);
+        grad.addColorStop(0, 'rgba(169, 128, 94, 0.12)'); // Soft caramel
+        grad.addColorStop(0.6, 'rgba(200, 150, 62, 0.06)'); // Soft gold
+        grad.addColorStop(1, 'rgba(243, 233, 216, 0)');
 
         ctx.fillStyle = grad;
         ctx.beginPath();
@@ -242,11 +229,11 @@ export const CoffeeAtmosphere: React.FC<Props> = ({ intensity = 'medium' }) => {
         className="absolute inset-0 w-full h-full object-cover"
       />
 
-      {/* Layer 2: Visibly Moving Glowing Mocha & Caramel Atmospheric Orbs (GPU Composite) */}
-      <div className="absolute -top-24 -left-20 w-[550px] h-[550px] rounded-full bg-gradient-to-br from-[#C49A6C]/30 via-[#A67C5B]/20 to-transparent blur-3xl pointer-events-none animate-coffee-drift-1" />
-      <div className="absolute top-[35%] -right-24 w-[600px] h-[600px] rounded-full bg-gradient-to-bl from-[#7A5540]/25 via-[#A67C5B]/20 to-transparent blur-3xl pointer-events-none animate-coffee-drift-2" />
-      <div className="absolute bottom-10 left-[15%] w-[650px] h-[650px] rounded-full bg-gradient-to-tr from-[#6B1E23]/18 via-[#8C4A28]/20 to-transparent blur-3xl pointer-events-none animate-cafe-light" />
-      <div className="absolute top-[60%] left-[45%] w-[450px] h-[450px] rounded-full bg-gradient-to-br from-[#D8B48D]/25 to-transparent blur-2xl pointer-events-none animate-coffee-pulse" />
+      {/* Layer 2: Moving Glowing Caramel & Gold Atmospheric Orbs */}
+      <div className="absolute -top-24 -left-20 w-[550px] h-[550px] rounded-full bg-gradient-to-br from-[#C8963E]/15 via-[#A9805E]/10 to-transparent blur-3xl pointer-events-none animate-bean-drift-1" />
+      <div className="absolute top-[35%] -right-24 w-[600px] h-[600px] rounded-full bg-gradient-to-bl from-[#A9805E]/15 via-[#EADCC4]/20 to-transparent blur-3xl pointer-events-none animate-bean-drift-2" />
+      <div className="absolute bottom-10 left-[15%] w-[650px] h-[650px] rounded-full bg-gradient-to-tr from-[#C8963E]/12 via-[#A9805E]/12 to-transparent blur-3xl pointer-events-none animate-slow-glow" />
+      <div className="absolute top-[60%] left-[45%] w-[450px] h-[450px] rounded-full bg-gradient-to-br from-[#EADCC4]/30 to-transparent blur-2xl pointer-events-none animate-slow-glow" />
 
       {/* Organic Curved Line Vectors (Steam & Crema Contours) */}
       <svg

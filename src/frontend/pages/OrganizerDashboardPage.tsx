@@ -91,23 +91,23 @@ export const OrganizerDashboardPage: React.FC = () => {
       <div className="mx-auto max-w-6xl">
         
         {/* Header */}
-        <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-8 pb-4 border-b border-[#E8DCC8] gap-4">
+        <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-8 pb-4 border-b border-[#EADCC4] gap-4">
           <div>
-            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#6B1E23]/10 text-[#6B1E23] text-xs font-semibold uppercase tracking-wider mb-2">
-              <ShieldCheck className="w-3.5 h-3.5" />
+            <div className="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full bg-[#EADCC4] text-[#3E2723] text-xs font-bold uppercase tracking-wider mb-2">
+              <ShieldCheck className="w-3.5 h-3.5 text-[#A9805E]" />
               <span>Organizer Verified Console</span>
             </div>
-            <h1 className="text-3xl sm:text-4xl font-serif font-bold text-[#2A1B16]">
+            <h1 className="text-3xl sm:text-4xl font-extrabold text-[#1E1410] tracking-tight">
               {org.name || 'ACM Student Chapter'}
             </h1>
-            <p className="text-sm text-[#5A3828] mt-1">
-              Trust Score: <strong className="text-[#6B1E23]">{org.trust_score}%</strong> · Punctuality Rating: <strong>{org.avg_punctuality_rating} / 5.0</strong>
+            <p className="text-sm text-[#6B5A4E] mt-1 font-medium">
+              Trust Score: <strong className="text-[#3E2723]">{org.trust_score}%</strong> · Punctuality Rating: <strong className="text-[#1E1410]">{org.avg_punctuality_rating} / 5.0</strong>
             </p>
           </div>
 
           <button
             onClick={() => setIsCreateModalOpen(true)}
-            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-[#2C0F12] text-[#FFFDF8] text-xs font-semibold hover:bg-[#6B1E23] transition-colors shadow-sm self-start sm:self-auto"
+            className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-[#3E2723] text-[#FBF3E4] text-xs font-bold hover:bg-[#A9805E] transition-all shadow-sm self-start sm:self-auto"
           >
             <Plus className="w-4 h-4" />
             <span>Publish New Event</span>
@@ -116,51 +116,51 @@ export const OrganizerDashboardPage: React.FC = () => {
 
         {/* ----------------- TOP METRIC CARDS ----------------- */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
-          <div className="p-5 rounded-2xl bg-[#FFFDF8] border border-[#E8DCC8] shadow-xs">
-            <span className="text-[11px] font-semibold text-[#5A3828] uppercase tracking-wider block mb-1">
+          <div className="p-5 rounded-3xl bg-[#FBF3E4] border border-[#EADCC4] shadow-xs">
+            <span className="text-[11px] font-bold text-[#6B5A4E] uppercase tracking-wider block mb-1">
               Total RSVPs
             </span>
-            <div className="text-2xl font-serif font-bold text-[#2A1B16]">
+            <div className="text-2xl font-bold text-[#1E1410] font-sans">
               {cards.totalRegistrations}
             </div>
-            <span className="text-[11px] text-[#2D6A4F] font-semibold flex items-center gap-1 mt-1">
+            <span className="text-[11px] text-[#1B4D3E] font-bold flex items-center gap-1 mt-1">
               <TrendingUp className="w-3 h-3" />
               <span>{cards.attendanceRatePct}% actual turnout</span>
             </span>
           </div>
 
-          <div className="p-5 rounded-2xl bg-[#FFFDF8] border border-[#E8DCC8] shadow-xs">
-            <span className="text-[11px] font-semibold text-[#5A3828] uppercase tracking-wider block mb-1">
+          <div className="p-5 rounded-3xl bg-[#FBF3E4] border border-[#EADCC4] shadow-xs">
+            <span className="text-[11px] font-bold text-[#6B5A4E] uppercase tracking-wider block mb-1">
               Student Rating
             </span>
-            <div className="text-2xl font-serif font-bold text-[#6B1E23]">
+            <div className="text-2xl font-bold text-[#A9805E] font-sans">
               ★ {cards.averageRating}
             </div>
-            <span className="text-[11px] text-[#5A3828] mt-1 block">
+            <span className="text-[11px] text-[#6B5A4E] mt-1 block font-medium">
               Content: {cards.contentScore} · Net: {cards.networkingScore}
             </span>
           </div>
 
-          <div className="p-5 rounded-2xl bg-[#FFFDF8] border border-[#E8DCC8] shadow-xs">
-            <span className="text-[11px] font-semibold text-[#5A3828] uppercase tracking-wider block mb-1">
+          <div className="p-5 rounded-3xl bg-[#FBF3E4] border border-[#EADCC4] shadow-xs">
+            <span className="text-[11px] font-bold text-[#6B5A4E] uppercase tracking-wider block mb-1">
               Claim Truth Health
             </span>
-            <div className="text-2xl font-serif font-bold text-[#2D6A4F]">
+            <div className="text-2xl font-bold text-[#1B4D3E] font-sans">
               {cards.claimVerificationHealthPct}%
             </div>
-            <span className="text-[11px] text-[#2D6A4F] font-semibold mt-1 block">
+            <span className="text-[11px] text-[#1B4D3E] font-bold mt-1 block">
               Verified by attendees
             </span>
           </div>
 
-          <div className="p-5 rounded-2xl bg-[#FFFDF8] border border-[#E8DCC8] shadow-xs">
-            <span className="text-[11px] font-semibold text-[#5A3828] uppercase tracking-wider block mb-1">
+          <div className="p-5 rounded-3xl bg-[#FBF3E4] border border-[#EADCC4] shadow-xs">
+            <span className="text-[11px] font-bold text-[#6B5A4E] uppercase tracking-wider block mb-1">
               Active Catalog
             </span>
-            <div className="text-2xl font-serif font-bold text-[#2A1B16]">
+            <div className="text-2xl font-bold text-[#1E1410] font-sans">
               {cards.activeEventsCount} Sessions
             </div>
-            <span className="text-[11px] text-[#5A3828] mt-1 block">
+            <span className="text-[11px] text-[#6B5A4E] mt-1 block font-medium">
               Turing Hall & Foundry Hub
             </span>
           </div>
@@ -170,7 +170,7 @@ export const OrganizerDashboardPage: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
           
           {/* Students Loved */}
-          <div className="p-6 rounded-2xl bg-[#FFFDF8] border border-[#E8DCC8]">
+          <div className="p-6 rounded-3xl bg-[#FBF3E4] border border-[#EADCC4]">
             <h3 className="text-sm font-bold uppercase tracking-wider text-[#2D6A4F] flex items-center gap-1.5 mb-4">
               <CheckCircle2 className="w-4 h-4" />
               <span>What Students Loved Most</span>

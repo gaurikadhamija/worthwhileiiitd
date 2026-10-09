@@ -123,10 +123,10 @@ export const EventDetailsPage: React.FC<Props> = ({ eventId }) => {
           <div className="flex items-center gap-2">
             <button
               onClick={() => toggleSave(event.id)}
-              className={`p-2 rounded-xl border text-xs font-semibold transition-colors flex items-center gap-1.5 ${
+              className={`p-2.5 rounded-full border text-xs font-bold transition-all flex items-center gap-1.5 ${
                 isSaved
-                  ? 'bg-[#6B1E23] text-white border-[#6B1E23]'
-                  : 'bg-[#FFFDF8] text-[#2A1B16] border-[#E8DCC8] hover:bg-[#F4EBDD]'
+                  ? 'bg-[#3E2723] text-[#FBF3E4] border-[#3E2723]'
+                  : 'bg-[#FBF3E4] text-[#1E1410] border-[#EADCC4] hover:bg-[#EADCC4]'
               }`}
             >
               <Bookmark className={`w-4 h-4 ${isSaved ? 'fill-current' : ''}`} />
@@ -136,16 +136,16 @@ export const EventDetailsPage: React.FC<Props> = ({ eventId }) => {
         </div>
 
         {/* Hero Banner Card */}
-        <div className="bg-[#FAF4EB] border border-[#D8C5AE] rounded-3xl overflow-hidden shadow-lg mb-10">
-          <div className="relative h-64 sm:h-80 w-full overflow-hidden bg-[#2C0F12]">
+        <div className="bg-[#FBF3E4] border border-[#EADCC4] rounded-3xl overflow-hidden shadow-lg mb-10">
+          <div className="relative h-64 sm:h-80 w-full overflow-hidden bg-[#2A1713]">
             <img
               src={event.cover_image}
               alt={event.title}
               className="w-full h-full object-cover opacity-85"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#2A1713]/90 via-[#2A1713]/40 to-transparent" />
 
-            <div className={`absolute top-4 left-4 ${getCategoryTheme(event.category).imageTagBg} backdrop-blur-md px-3.5 py-1.5 rounded-xl text-white text-xs font-bold uppercase tracking-wider shadow-lg border border-white/20 flex items-center gap-1.5`}>
+            <div className={`absolute top-4 left-4 ${getCategoryTheme(event.category).imageTagBg} backdrop-blur-md px-4 py-1.5 rounded-full text-white text-xs font-bold uppercase tracking-wider shadow-lg border border-white/20 flex items-center gap-1.5`}>
               <span className="w-2 h-2 rounded-full bg-white inline-block" />
               <span>{event.category}</span>
             </div>
@@ -153,61 +153,61 @@ export const EventDetailsPage: React.FC<Props> = ({ eventId }) => {
             {/* Relevance Score Pill on Banner */}
             <div
               onClick={() => setScoreModalEvent(event)}
-              className="absolute top-4 right-4 bg-[#FFFDF8]/95 backdrop-blur-md px-4 py-2 rounded-2xl shadow-xl border border-[#E8DCC8] flex items-center gap-3 cursor-pointer hover:scale-105 transition-transform"
+              className="absolute top-4 right-4 bg-[#FBF3E4]/95 backdrop-blur-md px-4 py-2 rounded-full shadow-xl border border-[#EADCC4] flex items-center gap-3 cursor-pointer hover:scale-105 transition-transform"
             >
               <RelevanceScoreRing score={event.relevance.totalScore} size="md" showLabel={false} />
               <div className="text-left">
-                <span className="text-xs font-bold text-[#6B1E23] uppercase tracking-wider block">
+                <span className="text-xs font-bold text-[#3E2723] uppercase tracking-wider block">
                   {event.relevance.totalScore}/100 Match
                 </span>
-                <span className="text-[10px] text-[#5A3828] underline font-medium">
+                <span className="text-[10px] text-[#A9805E] underline font-bold">
                   Why this score?
                 </span>
               </div>
             </div>
 
             <div className="absolute bottom-6 left-6 right-6 text-white">
-              <h1 className="text-2xl sm:text-4xl font-serif font-bold text-[#FFFDF8] leading-tight">
+              <h1 className="text-2xl sm:text-4xl font-extrabold text-[#FBF3E4] leading-tight tracking-tight font-sans">
                 {event.title}
               </h1>
-              <p className="text-xs sm:text-sm text-[#E8DCC8] mt-2 max-w-2xl line-clamp-2">
+              <p className="text-xs sm:text-sm text-[#EADCC4] mt-2 max-w-2xl line-clamp-2">
                 {event.tagline}
               </p>
             </div>
           </div>
 
           {/* Quick Info Strip */}
-          <div className="p-6 bg-[#FFFDF8] border-b border-[#F4EBDD] grid grid-cols-2 sm:grid-cols-4 gap-4 text-xs">
+          <div className="p-6 bg-[#FBF3E4] border-b border-[#EADCC4] grid grid-cols-2 sm:grid-cols-4 gap-4 text-xs">
             <div>
-              <span className="text-[#5A3828] block text-[11px] uppercase tracking-wider font-semibold">Date & Time</span>
-              <div className="font-semibold text-[#2A1B16] mt-0.5">{dateStr}</div>
-              <div className="text-[#5A3828]">{timeStr}</div>
+              <span className="text-[#6B5A4E] block text-[11px] uppercase tracking-wider font-bold">Date & Time</span>
+              <div className="font-bold text-[#1E1410] mt-0.5">{dateStr}</div>
+              <div className="text-[#6B5A4E]">{timeStr}</div>
             </div>
             <div>
-              <span className="text-[#5A3828] block text-[11px] uppercase tracking-wider font-semibold">Venue</span>
-              <div className="font-semibold text-[#2A1B16] mt-0.5">{event.venue?.name}</div>
-              <div className="text-[#5A3828]">{event.venue?.building} · {event.venue?.room}</div>
+              <span className="text-[#6B5A4E] block text-[11px] uppercase tracking-wider font-bold">Venue</span>
+              <div className="font-bold text-[#1E1410] mt-0.5">{event.venue?.name}</div>
+              <div className="text-[#6B5A4E]">{event.venue?.building} · {event.venue?.room}</div>
             </div>
             <div>
-              <span className="text-[#5A3828] block text-[11px] uppercase tracking-wider font-semibold">Organizer</span>
-              <div className="font-semibold text-[#2A1B16] mt-0.5">{event.organizer?.name}</div>
-              <div className="text-[#6B1E23] font-bold">{Math.round(event.organizer?.trust_score || 88)}% Trust Rating</div>
+              <span className="text-[#6B5A4E] block text-[11px] uppercase tracking-wider font-bold">Organizer</span>
+              <div className="font-bold text-[#1E1410] mt-0.5">{event.organizer?.name}</div>
+              <div className="text-[#3E2723] font-bold">{Math.round(event.organizer?.trust_score || 88)}% Trust Rating</div>
             </div>
             <div>
-              <span className="text-[#5A3828] block text-[11px] uppercase tracking-wider font-semibold">Cost & Certificate</span>
-              <div className="font-semibold text-[#2A1B16] mt-0.5">{event.is_free ? 'Free Event' : `$${(event.cost_cents/100).toFixed(2)}`}</div>
-              <div className="text-[#2D6A4F] font-semibold">{event.certificate_offered ? '✓ Certificate Offered' : 'No Certificate'}</div>
+              <span className="text-[#6B5A4E] block text-[11px] uppercase tracking-wider font-bold">Cost & Certificate</span>
+              <div className="font-bold text-[#1E1410] mt-0.5">{event.is_free ? 'Free Event' : `$${(event.cost_cents/100).toFixed(2)}`}</div>
+              <div className="text-[#1B4D3E] font-bold">{event.certificate_offered ? '✓ Certificate Offered' : 'No Certificate'}</div>
             </div>
           </div>
 
           {/* Registration / Attendance CTA Action Row */}
-          <div className="p-6 bg-[#F4EBDD]/40 flex flex-col sm:flex-row items-center justify-between gap-4">
-            <div className="text-xs text-[#5A3828]">
+          <div className="p-6 bg-[#F3E9D8] flex flex-col sm:flex-row items-center justify-between gap-4">
+            <div className="text-xs text-[#6B5A4E]">
               {analytics && (
                 <div className="flex items-center gap-2">
-                  <span className="inline-block w-2 h-2 rounded-full bg-[#2D6A4F] animate-pulse" />
+                  <span className="inline-block w-2 h-2 rounded-full bg-[#1B4D3E] animate-pulse" />
                   <span>
-                    <strong className="text-[#2A1B16]">{analytics.seats_registered}</strong> / {analytics.seats_total} seats registered ({Math.round((analytics.seats_registered/analytics.seats_total)*100)}% filled)
+                    <strong className="text-[#1E1410]">{analytics.seats_registered}</strong> / {analytics.seats_total} seats registered ({Math.round((analytics.seats_registered/analytics.seats_total)*100)}% filled)
                   </span>
                 </div>
               )}
@@ -216,7 +216,7 @@ export const EventDetailsPage: React.FC<Props> = ({ eventId }) => {
             <div className="flex items-center gap-3 w-full sm:w-auto">
               <button
                 onClick={() => setReviewModalEvent(event)}
-                className="w-full sm:w-auto px-4 py-2.5 rounded-xl border border-[#E8DCC8] bg-[#FFFDF8] hover:bg-[#F4EBDD] text-xs font-semibold text-[#2A1B16] transition-colors"
+                className="w-full sm:w-auto px-5 py-2.5 rounded-full border border-[#EADCC4] bg-[#FBF3E4] hover:bg-[#EADCC4] text-xs font-bold text-[#1E1410] transition-colors"
               >
                 Leave 30-Sec Review
               </button>
@@ -224,10 +224,10 @@ export const EventDetailsPage: React.FC<Props> = ({ eventId }) => {
               <button
                 onClick={handleRegister}
                 disabled={isRegistering || isRegistered}
-                className={`w-full sm:w-auto px-6 py-2.5 rounded-xl text-xs font-semibold transition-all shadow-sm ${
+                className={`w-full sm:w-auto px-7 py-3 rounded-full text-xs font-bold transition-all shadow-md ${
                   isRegistered
-                    ? 'bg-[#2D6A4F] text-white cursor-default'
-                    : 'bg-[#2C0F12] text-white hover:bg-[#6B1E23]'
+                    ? 'bg-[#1B4D3E] text-white cursor-default'
+                    : 'bg-[#3E2723] text-[#FBF3E4] hover:bg-[#A9805E] active:scale-[0.98]'
                 }`}
               >
                 {isRegistered ? '✓ You Are Registered' : isRegistering ? 'Registering...' : 'Register for Session'}
@@ -239,10 +239,10 @@ export const EventDetailsPage: React.FC<Props> = ({ eventId }) => {
         {/* ----------------- WHAT WILL I GET OUT OF THIS? ----------------- */}
         <section className="mb-12">
           <div className="mb-4">
-            <span className="text-xs font-semibold uppercase tracking-wider text-[#6B1E23] block">
+            <span className="text-xs font-bold uppercase tracking-wider text-[#A9805E] block">
               Tangible ROI Deliverables
             </span>
-            <h2 className="text-2xl font-serif font-bold text-[#2A1B16]">
+            <h2 className="text-2xl font-extrabold text-[#1E1410] tracking-tight">
               What will I get out of this?
             </h2>
           </div>

@@ -47,23 +47,23 @@ export const MyEventsPage: React.FC = () => {
       <div className="mx-auto max-w-6xl">
         
         {/* Header */}
-        <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-8 pb-4 border-b border-[#E8DCC8] gap-4">
+        <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-8 pb-4 border-b border-[#EADCC4] gap-4">
           <div>
-            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#6B1E23]/10 text-[#6B1E23] text-xs font-semibold uppercase tracking-wider mb-2">
-              <BookOpen className="w-3.5 h-3.5" />
+            <div className="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full bg-[#EADCC4] text-[#3E2723] text-xs font-bold uppercase tracking-wider mb-2">
+              <BookOpen className="w-3.5 h-3.5 text-[#A9805E]" />
               <span>Student Co-Curricular Hub</span>
             </div>
-            <h1 className="text-3xl sm:text-4xl font-serif font-bold text-[#2A1B16]">
+            <h1 className="text-3xl sm:text-4xl font-extrabold text-[#1E1410] tracking-tight">
               My Events & Portfolio
             </h1>
-            <p className="text-sm text-[#5A3828] mt-1">
+            <p className="text-sm text-[#6B5A4E] mt-1 font-medium">
               Your verified record of campus participation, technical skill gain, and credentials.
             </p>
           </div>
 
           <button
             onClick={() => setIsGoalsModalOpen(true)}
-            className="px-4 py-2 text-xs font-semibold rounded-xl bg-[#2C0F12] text-[#FFFDF8] hover:bg-[#6B1E23] transition-colors self-start sm:self-auto"
+            className="px-5 py-2.5 text-xs font-bold rounded-full bg-[#3E2723] text-[#FBF3E4] hover:bg-[#A9805E] transition-all self-start sm:self-auto shadow-sm"
           >
             Edit Semester Goals
           </button>
@@ -71,63 +71,63 @@ export const MyEventsPage: React.FC = () => {
 
         {/* ----------------- ACTIVITY PORTFOLIO SCORECARD ----------------- */}
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3 sm:gap-4 mb-10">
-          <div className="p-4 rounded-2xl bg-[#FFFDF8] border border-[#E8DCC8] text-center shadow-xs">
-            <span className="text-2xl font-serif font-bold text-[#2C0F12] block">
+          <div className="p-4 rounded-3xl bg-[#FBF3E4] border border-[#EADCC4] text-center shadow-xs">
+            <span className="text-2xl font-bold text-[#3E2723] block">
               {stats.eventsAttended}
             </span>
-            <span className="text-[11px] font-medium text-[#5A3828] uppercase tracking-wider">
+            <span className="text-[11px] font-bold text-[#6B5A4E] uppercase tracking-wider">
               Sessions Attended
             </span>
           </div>
 
-          <div className="p-4 rounded-2xl bg-[#FAF4EB] border border-[#D8C5AE] text-center shadow-sm">
-            <span className="text-2xl font-serif font-bold text-[#6B1E23] block">
+          <div className="p-4 rounded-3xl bg-[#FBF3E4] border border-[#EADCC4] text-center shadow-xs">
+            <span className="text-2xl font-bold text-[#A9805E] block">
               {stats.skillsExplored}
             </span>
-            <span className="text-[11px] font-medium text-[#5A3828] uppercase tracking-wider">
+            <span className="text-[11px] font-bold text-[#6B5A4E] uppercase tracking-wider">
               Skills Explored
             </span>
           </div>
 
-          <div className="p-4 rounded-2xl bg-[#FAF4EB] border border-[#D8C5AE] text-center shadow-sm">
-            <span className="text-2xl font-serif font-bold text-[#1E4D38] block">
+          <div className="p-4 rounded-3xl bg-[#FBF3E4] border border-[#EADCC4] text-center shadow-xs">
+            <span className="text-2xl font-bold text-[#1B4D3E] block">
               {stats.certificatesEarned}
             </span>
-            <span className="text-[11px] font-medium text-[#5A3828] uppercase tracking-wider">
+            <span className="text-[11px] font-bold text-[#6B5A4E] uppercase tracking-wider">
               Certificates
             </span>
           </div>
 
-          <div className="p-4 rounded-2xl bg-[#FAF4EB] border border-[#D8C5AE] text-center shadow-sm">
-            <span className="text-2xl font-serif font-bold text-[#241510] block">
+          <div className="p-4 rounded-3xl bg-[#FBF3E4] border border-[#EADCC4] text-center shadow-xs">
+            <span className="text-2xl font-bold text-[#3E2723] block">
               {stats.networkingEvents}
             </span>
-            <span className="text-[11px] font-medium text-[#5A3828] uppercase tracking-wider">
+            <span className="text-[11px] font-bold text-[#6B5A4E] uppercase tracking-wider">
               Mixers & Fairs
             </span>
           </div>
 
-          <div className="p-4 rounded-2xl bg-[#FAF4EB] border border-[#D8C5AE] text-center shadow-sm">
-            <span className="text-2xl font-serif font-bold text-[#854D0E] block">
+          <div className="p-4 rounded-3xl bg-[#FBF3E4] border border-[#EADCC4] text-center shadow-xs">
+            <span className="text-2xl font-bold text-[#A9805E] block">
               {stats.reviewsContributed}
             </span>
-            <span className="text-[11px] font-medium text-[#5A3828] uppercase tracking-wider">
+            <span className="text-[11px] font-bold text-[#6B5A4E] uppercase tracking-wider">
               Reviews Contributed
             </span>
           </div>
 
-          <div className="p-4 rounded-2xl bg-[#FAF4EB] border border-[#D8C5AE] text-center shadow-sm">
-            <span className="text-2xl font-serif font-bold text-[#241510] block">
+          <div className="p-4 rounded-3xl bg-[#FBF3E4] border border-[#EADCC4] text-center shadow-xs">
+            <span className="text-2xl font-bold text-[#3E2723] block">
               {stats.verifiedHoursLogged}h
             </span>
-            <span className="text-[11px] font-medium text-[#5A3828] uppercase tracking-wider">
+            <span className="text-[11px] font-bold text-[#6B5A4E] uppercase tracking-wider">
               Verified Hours
             </span>
           </div>
         </div>
 
         {/* Navigation Tabs */}
-        <div className="flex items-center gap-2 mb-8 border-b border-[#D8C5AE] pb-1 overflow-x-auto">
+        <div className="flex items-center gap-2 mb-8 border-b border-[#EADCC4] pb-2 overflow-x-auto">
           {[
             { id: 'portfolio', label: 'Activity Portfolio' },
             { id: 'saved', label: `Saved (${savedEvents.length})` },
@@ -137,10 +137,10 @@ export const MyEventsPage: React.FC = () => {
             <button
               key={tab.id}
               onClick={() => setActiveTab(tab.id as any)}
-              className={`px-4 py-2.5 text-xs font-semibold transition-all border-b-2 -mb-1 whitespace-nowrap ${
+              className={`px-5 py-2.5 text-xs font-bold rounded-full transition-all whitespace-nowrap ${
                 activeTab === tab.id
-                  ? 'border-[#6B1E23] text-[#6B1E23] bg-[#FAF4EB] rounded-t-xl'
-                  : 'border-transparent text-[#5A3828] hover:text-[#241510]'
+                  ? 'bg-[#3E2723] text-[#FBF3E4] shadow-sm'
+                  : 'text-[#6B5A4E] hover:text-[#1E1410] hover:bg-[#EADCC4]/50'
               }`}
             >
               {tab.label}

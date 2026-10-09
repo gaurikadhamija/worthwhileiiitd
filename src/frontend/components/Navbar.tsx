@@ -29,25 +29,25 @@ export const Navbar: React.FC = () => {
   ];
 
   return (
-    <header className="sticky top-0 z-40 w-full bg-[#FAF2E6]/90 backdrop-blur-md border-b border-[#D8C5AE] shadow-sm">
+    <header className="sticky top-0 z-40 w-full bg-[#3E2723] text-[#F3E9D8] border-b border-[#2A1713] shadow-md">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex h-16 items-center justify-between">
           
-          {/* Brand Logo */}
+          {/* Brand Logo with Accent Gold */}
           <div className="flex items-center gap-8">
             <button
               onClick={() => navigateTo('discover')}
               className="flex items-center gap-2.5 text-left group"
             >
-              <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-[#2C0F12] to-[#6B1E23] flex items-center justify-center text-[#FFFDF8] shadow-md group-hover:scale-105 transition-transform">
-                <Compass className="w-5 h-5 text-[#E8DCC8]" />
+              <div className="w-9 h-9 rounded-full bg-gradient-to-br from-[#C8963E] to-[#A9805E] flex items-center justify-center text-[#3E2723] shadow-md group-hover:scale-105 transition-transform">
+                <Compass className="w-5 h-5 text-[#3E2723]" />
               </div>
               <div>
-                <span className="font-serif text-xl font-bold tracking-tight text-[#2C0F12] block leading-none">
-                  WorthWhile
+                <span className="font-bold text-xl tracking-tight text-[#FBF3E4] block leading-none font-sans">
+                  Worth<span className="text-[#C8963E]">While</span>
                 </span>
-                <span className="text-[9px] uppercase tracking-widest text-[#6B1E23] font-semibold block mt-0.5">
-                  Campus Intelligence
+                <span className="text-[9px] uppercase tracking-widest text-[#C8963E] font-semibold block mt-0.5">
+                  Campus Event Intelligence
                 </span>
               </div>
             </button>
@@ -60,20 +60,20 @@ export const Navbar: React.FC = () => {
                   <button
                     key={link.page}
                     onClick={() => navigateTo(link.page)}
-                    className={`relative px-3.5 py-2 text-xs font-semibold transition-colors ${
+                    className={`relative px-3.5 py-2 text-xs font-semibold rounded-full transition-colors ${
                       isActive
-                        ? 'text-[#6B1E23]'
-                        : 'text-[#5A3828] hover:text-[#2A1B16]'
+                        ? 'text-[#FBF3E4] bg-[#2A1713]'
+                        : 'text-[#EADCC4] hover:text-[#FFFFFF] hover:bg-[#4E322C]'
                     }`}
                   >
                     <span>{link.label}</span>
                     {link.page === 'compare' && compareEventIds.length > 0 && (
-                      <span className="ml-1.5 px-1.5 py-0.2 rounded-full text-[10px] bg-[#6B1E23] text-[#FFFDF8] font-bold">
+                      <span className="ml-1.5 px-1.5 py-0.2 rounded-full text-[10px] bg-[#C8963E] text-[#3E2723] font-bold">
                         {compareEventIds.length}
                       </span>
                     )}
                     {isActive && (
-                      <span className="absolute bottom-0 left-3 right-3 h-0.5 bg-[#6B1E23] rounded-full" />
+                      <span className="absolute bottom-1 left-4 right-4 h-0.5 bg-[#C8963E] rounded-full" />
                     )}
                   </button>
                 );
@@ -82,10 +82,10 @@ export const Navbar: React.FC = () => {
               {/* Organizer Portal Tab */}
               <button
                 onClick={() => navigateTo('organizer')}
-                className={`px-3 py-1.5 text-xs font-medium rounded-lg transition-colors ${
+                className={`px-3 py-1.5 text-xs font-medium rounded-full transition-colors ${
                   activePage === 'organizer'
-                    ? 'text-[#6B1E23] bg-[#F4EBDD]'
-                    : 'text-[#5A3828] hover:text-[#2A1B16]'
+                    ? 'text-[#FBF3E4] bg-[#2A1713]'
+                    : 'text-[#EADCC4] hover:text-[#FFFFFF] hover:bg-[#4E322C]'
                 }`}
               >
                 Organizer Desk
@@ -93,21 +93,21 @@ export const Navbar: React.FC = () => {
             </nav>
           </div>
 
-          {/* Right Side: Role Selector, Notifications & Avatar */}
+          {/* Right Side: Role Selector, Notifications & Action Link */}
           <div className="flex items-center gap-3">
             
-            {/* Quick Goals Trigger */}
+            {/* Highlighted Action Link (Pill CTA like "Order Now") */}
             <button
               onClick={() => setIsGoalsModalOpen(true)}
-              className="hidden sm:inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-[#E8DCC8] bg-[#F4EBDD]/60 hover:bg-[#F4EBDD] text-xs font-medium text-[#2A1B16] transition-colors"
+              className="hidden sm:inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-[#A9805E] hover:bg-[#96704F] text-[#FBF3E4] text-xs font-bold shadow-md hover:scale-[1.02] active:scale-[0.98] transition-all"
               title="Change your target goals for personalized relevance scoring"
             >
-              <Sliders className="w-3.5 h-3.5 text-[#6B1E23]" />
-              <span>My Goals</span>
+              <Sliders className="w-3.5 h-3.5 text-[#FBF3E4]" />
+              <span>Semester Goals</span>
             </button>
 
-            {/* Role Switcher (Student / Organizer / Admin) */}
-            <div className="hidden lg:flex items-center bg-[#F4EBDD] p-0.5 rounded-lg border border-[#E8DCC8]">
+            {/* Role Switcher (Student / Organizer) */}
+            <div className="hidden lg:flex items-center bg-[#2A1713] p-0.5 rounded-full border border-[#4E322C]">
               {(['student', 'organizer'] as UserRole[]).map(role => (
                 <button
                   key={role}
@@ -116,10 +116,10 @@ export const Navbar: React.FC = () => {
                     if (role === 'organizer') navigateTo('organizer');
                     else if (activePage === 'organizer') navigateTo('discover');
                   }}
-                  className={`px-2.5 py-1 text-[11px] font-semibold rounded-md transition-colors capitalize ${
+                  className={`px-3 py-1 text-[11px] font-semibold rounded-full transition-colors capitalize ${
                     currentUserRole === role
-                      ? 'bg-[#2C0F12] text-[#FFFDF8] shadow-xs'
-                      : 'text-[#5A3828] hover:text-[#2A1B16]'
+                      ? 'bg-[#C8963E] text-[#3E2723] shadow-xs'
+                      : 'text-[#EADCC4] hover:text-[#FFFFFF]'
                   }`}
                 >
                   {role}
@@ -131,24 +131,24 @@ export const Navbar: React.FC = () => {
             <div className="relative">
               <button
                 onClick={() => setNotificationsOpen(!notificationsOpen)}
-                className="relative p-2 rounded-xl text-[#5A3828] hover:bg-[#F4EBDD] transition-colors"
+                className="relative p-2 rounded-full text-[#EADCC4] hover:bg-[#4E322C] transition-colors"
                 aria-label="Notifications"
               >
-                <Bell className="w-5 h-5 text-[#2A1B16]" />
+                <Bell className="w-5 h-5 text-[#FBF3E4]" />
                 {unreadNotificationCount > 0 && (
-                  <span className="absolute top-1.5 right-1.5 w-2 h-2 rounded-full bg-[#6B1E23]" />
+                  <span className="absolute top-1.5 right-1.5 w-2 h-2 rounded-full bg-[#C8963E]" />
                 )}
               </button>
 
               {notificationsOpen && (
-                <div className="absolute right-0 mt-2 w-80 sm:w-96 rounded-2xl bg-[#FFFDF8] border border-[#E8DCC8] shadow-2xl p-4 z-50 animate-fadeIn">
-                  <div className="flex items-center justify-between pb-3 border-b border-[#F4EBDD]">
+                <div className="absolute right-0 mt-2 w-80 sm:w-96 rounded-2xl bg-[#FBF3E4] border border-[#EADCC4] shadow-2xl p-4 z-50 text-[#1E1410] animate-fadeIn">
+                  <div className="flex items-center justify-between pb-3 border-b border-[#EADCC4]">
                     <div className="flex items-center gap-2">
-                      <h4 className="text-xs font-bold uppercase tracking-wider text-[#2A1B16]">
+                      <h4 className="text-xs font-bold uppercase tracking-wider text-[#3E2723]">
                         Notifications
                       </h4>
                       {unreadNotificationCount > 0 && (
-                        <span className="text-[10px] bg-[#6B1E23] text-white px-1.5 py-0.2 rounded-full font-bold">
+                        <span className="text-[10px] bg-[#3E2723] text-[#FBF3E4] px-1.5 py-0.2 rounded-full font-bold">
                           {unreadNotificationCount}
                         </span>
                       )}
@@ -156,7 +156,7 @@ export const Navbar: React.FC = () => {
                     {unreadNotificationCount > 0 && (
                       <button
                         onClick={markAllNotificationsAsRead}
-                        className="text-[11px] text-[#6B1E23] hover:underline font-semibold"
+                        className="text-[11px] text-[#A9805E] hover:underline font-semibold"
                       >
                         Mark all read
                       </button>
@@ -165,7 +165,7 @@ export const Navbar: React.FC = () => {
 
                   <div className="mt-2 max-h-72 overflow-y-auto space-y-2">
                     {notifications.length === 0 ? (
-                      <p className="text-xs text-[#5A3828] py-4 text-center">
+                      <p className="text-xs text-[#6B5A4E] py-4 text-center">
                         No notifications right now.
                       </p>
                     ) : (
@@ -181,19 +181,19 @@ export const Navbar: React.FC = () => {
                           }}
                           className={`p-2.5 rounded-xl border text-xs cursor-pointer transition-colors ${
                             n.read
-                              ? 'border-transparent bg-[#F4EBDD]/40 text-[#5A3828]'
-                              : 'border-[#6B1E23]/30 bg-[#F4EBDD] text-[#2A1B16]'
+                              ? 'border-transparent bg-[#F3E9D8]/40 text-[#6B5A4E]'
+                              : 'border-[#A9805E]/40 bg-[#F3E9D8] text-[#1E1410]'
                           }`}
                         >
                           <div className="flex items-start justify-between gap-1">
-                            <span className="font-semibold text-xs text-[#2A1B16]">
+                            <span className="font-semibold text-xs text-[#1E1410]">
                               {n.title}
                             </span>
                             {!n.read && (
-                              <span className="w-1.5 h-1.5 rounded-full bg-[#6B1E23] shrink-0 mt-1" />
+                              <span className="w-1.5 h-1.5 rounded-full bg-[#C8963E] shrink-0 mt-1" />
                             )}
                           </div>
-                          <p className="text-[11px] text-[#5A3828] mt-0.5 line-clamp-2">
+                          <p className="text-[11px] text-[#6B5A4E] mt-0.5 line-clamp-2">
                             {n.message}
                           </p>
                         </div>
@@ -207,15 +207,15 @@ export const Navbar: React.FC = () => {
             {/* User Avatar */}
             <div
               onClick={() => navigateTo('myevents')}
-              className="flex items-center gap-2 cursor-pointer p-1 rounded-xl hover:bg-[#F4EBDD] transition-colors"
+              className="flex items-center gap-2 cursor-pointer p-1 rounded-full hover:bg-[#4E322C] transition-colors"
               title="View your Activity Portfolio"
             >
               <img
                 src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=120&q=80"
                 alt="Alex Chen"
-                className="w-8 h-8 rounded-full object-cover border border-[#E8DCC8]"
+                className="w-8 h-8 rounded-full object-cover border-2 border-[#C8963E]"
               />
-              <span className="hidden sm:inline text-xs font-semibold text-[#2A1B16]">
+              <span className="hidden sm:inline text-xs font-semibold text-[#FBF3E4]">
                 Alex Chen
               </span>
             </div>
@@ -223,7 +223,7 @@ export const Navbar: React.FC = () => {
             {/* Mobile Menu Hamburger */}
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="md:hidden p-2 rounded-xl text-[#2A1B16] hover:bg-[#F4EBDD]"
+              className="md:hidden p-2 rounded-xl text-[#FBF3E4] hover:bg-[#4E322C]"
               aria-label="Toggle navigation menu"
             >
               {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -234,7 +234,7 @@ export const Navbar: React.FC = () => {
 
       {/* Mobile Drawer Menu */}
       {mobileMenuOpen && (
-        <div className="md:hidden border-t border-[#E8DCC8] bg-[#FFFDF8] px-4 py-4 space-y-2">
+        <div className="md:hidden border-t border-[#2A1713] bg-[#3E2723] px-4 py-4 space-y-2">
           {navLinks.map(link => (
             <button
               key={link.page}
@@ -242,10 +242,10 @@ export const Navbar: React.FC = () => {
                 navigateTo(link.page);
                 setMobileMenuOpen(false);
               }}
-              className={`block w-full text-left px-4 py-2.5 text-sm font-semibold rounded-xl ${
+              className={`block w-full text-left px-4 py-2.5 text-sm font-semibold rounded-full ${
                 activePage === link.page
-                  ? 'bg-[#2C0F12] text-[#FFFDF8]'
-                  : 'text-[#2A1B16] hover:bg-[#F4EBDD]'
+                  ? 'bg-[#2A1713] text-[#FBF3E4]'
+                  : 'text-[#EADCC4] hover:bg-[#4E322C]'
               }`}
             >
               {link.label}
@@ -256,17 +256,17 @@ export const Navbar: React.FC = () => {
               navigateTo('organizer');
               setMobileMenuOpen(false);
             }}
-            className="block w-full text-left px-4 py-2.5 text-sm font-semibold rounded-xl text-[#2A1B16] hover:bg-[#F4EBDD]"
+            className="block w-full text-left px-4 py-2.5 text-sm font-semibold rounded-full text-[#EADCC4] hover:bg-[#4E322C]"
           >
             Organizer Desk
           </button>
-          <div className="pt-2 border-t border-[#E8DCC8]">
+          <div className="pt-2 border-t border-[#2A1713]">
             <button
               onClick={() => {
                 setIsGoalsModalOpen(true);
                 setMobileMenuOpen(false);
               }}
-              className="w-full py-2.5 text-center text-xs font-semibold rounded-xl bg-[#6B1E23] text-[#FFFDF8]"
+              className="w-full py-2.5 text-center text-xs font-bold rounded-full bg-[#A9805E] text-[#FBF3E4]"
             >
               Customize Semester Goals
             </button>

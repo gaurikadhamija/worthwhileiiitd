@@ -18,7 +18,7 @@ const MainContent: React.FC = () => {
   const { activePage, selectedEventId, scoreModalEvent, setScoreModalEvent } = useApp();
 
   return (
-    <div className="relative flex flex-col min-h-screen text-[#1A0D08] selection:bg-[#6B1E23] selection:text-[#FFFDF8]">
+    <div className="relative flex flex-col min-h-screen bg-[#F3E9D8] text-[#1E1410] selection:bg-[#3E2723] selection:text-[#FBF3E4]">
       {/* Multi-Layer Animated Coffee Atmosphere Background */}
       <CoffeeAtmosphere />
 
